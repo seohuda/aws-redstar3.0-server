@@ -1,0 +1,36 @@
+name: Validate
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform format
+        run: terraform -chdir=infra fmt -check
+
+      - name: Terraform init
+        run: terraform -chdir=infra init -backend=false
+
+      - name: Terraform validate
+        run: terraform -chdir=infra validate
+
+      - name: Shell syntax
+        shell: bash
+        run: |
+          bash -n infra/user_data.sh
+          find scripts -type f -name '*.sh' -print0 | xargs -0 -n1 bash -n
