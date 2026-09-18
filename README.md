@@ -88,6 +88,12 @@ instance_type = c8i.xlarge
 root_volume   = 80 GB gp3
 ```
 
+필요하면 예제 변수 파일을 복사해서 사용할 수 있습니다.
+
+```bash
+cp infra/terraform.tfvars.example infra/terraform.tfvars
+```
+
 SSH를 인터넷 전체에 열지 않으려면 배포 시 접속할 IP 대역을 지정하는 것을 권장합니다.
 
 ```bash
@@ -284,6 +290,8 @@ sudo systemctl reload nginx
 
 - [Contributing guide](CONTRIBUTING.md) — 기여 방식, 로컬 검증 명령, 민감 파일 금지 규칙
 - [Security policy](SECURITY.md) — 취약점 및 민감정보 신고 가이드
+- [Code of Conduct](CODE_OF_CONDUCT.md) — 공개 기여/토론 기본 규칙
+- [CODEOWNERS](.github/CODEOWNERS) — 기본 리뷰 소유자 지정
 - [Issue templates](.github/ISSUE_TEMPLATE) — 버그/기능 제안 양식
 - [Pull request template](.github/PULL_REQUEST_TEMPLATE.md) — 검증 및 보안 체크리스트
 - [Dependabot](.github/dependabot.yml) — Terraform 의존성 주간 업데이트
