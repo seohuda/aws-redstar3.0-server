@@ -14,6 +14,8 @@
   <a href="README.en.md"><img src="https://img.shields.io/badge/English-README-2563EB?style=flat-square" alt="English" /></a>
   <img src="https://img.shields.io/github/stars/seohuda/aws-redstar3.0-server?style=flat-square&logo=github&label=Stars" alt="GitHub Stars" />
   <img src="https://img.shields.io/github/last-commit/seohuda/aws-redstar3.0-server?style=flat-square&logo=github" alt="Last commit" />
+  <a href="https://github.com/seohuda/aws-redstar3.0-server/actions/workflows/validate.yml"><img src="https://github.com/seohuda/aws-redstar3.0-server/actions/workflows/validate.yml/badge.svg" alt="Validate" /></a>
+  <img src="https://img.shields.io/github/license/seohuda/aws-redstar3.0-server?style=flat-square" alt="License" />
   <img src="https://img.shields.io/badge/Host-Ubuntu_24.04-E95420?style=flat-square&logo=ubuntu&logoColor=white" alt="Ubuntu 24.04" />
 </p>
 
@@ -261,6 +263,20 @@ The repository contains development-oriented defaults that should be reviewed be
 - [Architecture](docs/architecture.md)
 - [Installation guide](docs/redstar_install_guide.md)
 - [Troubleshooting](docs/troubleshooting.md)
+
+## Open Source
+
+The repository includes the standard files needed for public issues and external contributions.
+
+- [Contributing guide](CONTRIBUTING.md) — contribution workflow, local validation, and sensitive-file rules
+- [Security policy](SECURITY.md) — guidance for vulnerability and sensitive-data reports
+- [Issue templates](.github/ISSUE_TEMPLATE) — structured bug and feature requests
+- [Pull request template](.github/PULL_REQUEST_TEMPLATE.md) — validation and security checklist
+- [Dependabot](.github/dependabot.yml) — weekly Terraform dependency updates
+- [Validate workflow](.github/workflows/validate.yml) — Terraform format/validate and shell syntax checks
+- [MIT License](LICENSE) — applies to the original code and documentation in this repository
+
+The MIT license does not grant rights to Red Star OS, its ISO images, or other third-party software.
 
 ## Cleanup
 
