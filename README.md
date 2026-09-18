@@ -14,6 +14,8 @@
   <a href="README.en.md"><img src="https://img.shields.io/badge/English-README-2563EB?style=flat-square" alt="English" /></a>
   <img src="https://img.shields.io/github/stars/seohuda/aws-redstar3.0-server?style=flat-square&logo=github&label=Stars" alt="GitHub Stars" />
   <img src="https://img.shields.io/github/last-commit/seohuda/aws-redstar3.0-server?style=flat-square&logo=github" alt="Last commit" />
+  <a href="https://github.com/seohuda/aws-redstar3.0-server/actions/workflows/validate.yml"><img src="https://github.com/seohuda/aws-redstar3.0-server/actions/workflows/validate.yml/badge.svg" alt="Validate" /></a>
+  <img src="https://img.shields.io/github/license/seohuda/aws-redstar3.0-server?style=flat-square" alt="License" />
   <img src="https://img.shields.io/badge/Host-Ubuntu_24.04-E95420?style=flat-square&logo=ubuntu&logoColor=white" alt="Ubuntu 24.04" />
 </p>
 
@@ -275,6 +277,20 @@ sudo systemctl reload nginx
 - [시스템 아키텍처](docs/architecture.md)
 - [Red Star OS 설치 가이드](docs/redstar_install_guide.md)
 - [트러블슈팅](docs/troubleshooting.md)
+
+## Open Source
+
+외부 기여와 공개 이슈를 받을 수 있도록 공개 저장소 기본 파일을 구성해두었습니다.
+
+- [Contributing guide](CONTRIBUTING.md) — 기여 방식, 로컬 검증 명령, 민감 파일 금지 규칙
+- [Security policy](SECURITY.md) — 취약점 및 민감정보 신고 가이드
+- [Issue templates](.github/ISSUE_TEMPLATE) — 버그/기능 제안 양식
+- [Pull request template](.github/PULL_REQUEST_TEMPLATE.md) — 검증 및 보안 체크리스트
+- [Dependabot](.github/dependabot.yml) — Terraform 의존성 주간 업데이트
+- [Validate workflow](.github/workflows/validate.yml) — Terraform format/validate 및 shell syntax 검사
+- [MIT License](LICENSE) — 이 저장소의 원본 코드와 문서에 적용
+
+MIT 라이선스는 Red Star OS, ISO 이미지 또는 기타 제3자 소프트웨어의 권리를 포함하지 않습니다.
 
 ## Cleanup
 
