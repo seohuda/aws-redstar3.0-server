@@ -1,7 +1,22 @@
+<div align="center">
+
 # aws-redstar3.0-server
 
-[![한국어](https://img.shields.io/badge/lang-한국어-red)](README.md)
-[![English](https://img.shields.io/badge/lang-English-blue)](README.en.md)
+<p>
+  <img src="https://img.shields.io/badge/Red_Star_OS-3.0_Server-BE1E2D?style=for-the-badge" alt="Red Star OS 3.0 Server" />
+  <img src="https://img.shields.io/badge/AWS_EC2-c8i.xlarge-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white" alt="AWS EC2" />
+  <img src="https://img.shields.io/badge/Terraform-Infrastructure-844FBA?style=for-the-badge&logo=terraform&logoColor=white" alt="Terraform" />
+  <img src="https://img.shields.io/badge/KVM-Nested_Virtualization-333333?style=for-the-badge&logo=linux&logoColor=white" alt="KVM Nested Virtualization" />
+</p>
+
+<p>
+  <a href="README.md"><img src="https://img.shields.io/badge/한국어-README-BE1E2D?style=flat-square" alt="한국어" /></a>
+  <a href="README.en.md"><img src="https://img.shields.io/badge/English-README-2563EB?style=flat-square" alt="English" /></a>
+  <img src="https://img.shields.io/github/stars/seohuda/aws-redstar3.0-server?style=flat-square&logo=github&label=Stars" alt="GitHub Stars" />
+  <img src="https://img.shields.io/badge/Host-Ubuntu_24.04-E95420?style=flat-square&logo=ubuntu&logoColor=white" alt="Ubuntu 24.04" />
+</p>
+
+</div>
 
 > Running **Red Star OS 3.0 Server** (DPRK's Linux distro) on AWS EC2 with KVM nested virtualization.
 
