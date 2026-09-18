@@ -1,0 +1,10 @@
+# Copy this file to infra/terraform.tfvars and adjust the values.
+# Never commit terraform.tfvars if it contains environment-specific or sensitive data.
+
+aws_region       = "ap-northeast-2"
+instance_type    = "c8i.xlarge"
+root_volume_size = 80
+
+# Replace this example address with your public IP in CIDR notation.
+# Example: 203.0.113.10/32
+allowed_ssh_cidr = "203.0.113.10/32"
