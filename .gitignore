@@ -1,0 +1,39 @@
+# ISO and Virtual Machine Disk Images
+*.iso
+*.img
+*.qcow2
+*.raw
+*.vmdk
+redstar3.0_SERVER_boot.iso
+redstar3.0_SERVER_rss3_32_key_gui_20131212.iso
+
+# Terraform files
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Credentials, Keys, and Secrets
+*.pem
+*.key
+*.pub
+.env
+.env.*
+secrets/
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
