@@ -1,4 +1,7 @@
-# aws-redstar3.0-sever
+# aws-redstar3.0-server
+
+[![한국어](https://img.shields.io/badge/lang-한국어-red)](README.md)
+[![English](https://img.shields.io/badge/lang-English-blue)](README.en.md)
 
 > Running **Red Star OS 3.0 Server** (DPRK's Linux distro) on AWS EC2 with KVM nested virtualization.
 
