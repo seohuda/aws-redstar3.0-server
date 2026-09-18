@@ -88,6 +88,12 @@ instance_type = c8i.xlarge
 root_volume   = 80 GB gp3
 ```
 
+You can also start from the example variables file:
+
+```bash
+cp infra/terraform.tfvars.example infra/terraform.tfvars
+```
+
 For a safer SSH configuration, restrict access to your own public IP or management network.
 
 ```bash
@@ -270,6 +276,8 @@ The repository includes the standard files needed for public issues and external
 
 - [Contributing guide](CONTRIBUTING.md) — contribution workflow, local validation, and sensitive-file rules
 - [Security policy](SECURITY.md) — guidance for vulnerability and sensitive-data reports
+- [Code of Conduct](CODE_OF_CONDUCT.md) — baseline rules for public contribution and discussion
+- [CODEOWNERS](.github/CODEOWNERS) — default review ownership
 - [Issue templates](.github/ISSUE_TEMPLATE) — structured bug and feature requests
 - [Pull request template](.github/PULL_REQUEST_TEMPLATE.md) — validation and security checklist
 - [Dependabot](.github/dependabot.yml) — weekly Terraform dependency updates
