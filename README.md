@@ -1,5 +1,7 @@
 # aws-redstar3.0-sever
 
+> Running **Red Star OS 3.0 Server** (DPRK's Linux distro) on AWS EC2 with KVM nested virtualization.
+
 AWS EC2에서 KVM nested virtualization으로 붉은별 3.0 서버(Red Star OS 3.0 Server, 32-bit)를 구동하는 프로젝트.
 
 ## 구성
