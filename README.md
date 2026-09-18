@@ -15,18 +15,72 @@ AWS EC2에서 KVM nested virtualization으로 붉은별 3.0 서버(Red Star OS 3
 - 붉은별 3.0 서버 ISO 2장 (boot ISO + install ISO)을 로컬 다운로드 폴더에 준비
 - VNC 클라이언트 (Remmina, TigerVNC 등)
 
-## 설치 순서
+## 설치
 
+### 1. EC2 인프라 생성
+
+Terraform으로 VPC, 보안그룹, EC2 인스턴스를 한번에 생성한다.
+EC2가 뜨면 `user_data.sh`가 자동으로 KVM, libvirt, Nginx를 설치한다.
+
+```bash
+terraform -chdir=infra init
+terraform -chdir=infra apply
 ```
-1. terraform -chdir=infra init && apply    EC2 생성 (user_data.sh가 KVM, Nginx 자동 설치)
-2. ./scripts/upload-isos.sh               boot.iso, install.iso를 EC2에 업로드
-3. ./scripts/create-redstar-vm.sh          VM 생성, boot.iso로 부팅
-4. ssh -i <key> -N -L 5900:localhost:5900 ubuntu@<IP>   VNC 터널 열기
-5. VNC로 127.0.0.1:5900 접속              붉은별 설치 시작
-6. "두번째 원반" 요청 시                     ./scripts/switch-to-install-iso.sh 실행 후 확인
-7. 설치 끝나면                              ./scripts/eject-redstar-iso.sh 로 CD 제거
-8. 재부팅                                   qcow2에서 정상 부팅 확인
+
+apply가 끝나면 EC2 공인 IP와 SSH 명령이 출력된다.
+
+### 2. ISO 업로드
+
+로컬 다운로드 폴더에서 붉은별 ISO 2장을 자동으로 찾아 EC2에 SCP로 업로드한다.
+SHA256 체크섬으로 이미 올라간 파일은 건너뛴다.
+
+```bash
+./scripts/upload-isos.sh
 ```
+
+### 3. VM 생성
+
+`virt-install`로 붉은별 VM을 만들고 boot.iso에서 부팅한다.
+로컬에서 실행하면 자동으로 SSH를 통해 EC2에서 실행되고,
+EC2 위에서 직접 실행해도 된다.
+
+```bash
+./scripts/create-redstar-vm.sh
+```
+
+### 4. VNC 접속
+
+EC2의 VNC 포트(5900)는 localhost에만 바인딩되어 있으므로 SSH 터널이 필요하다.
+
+```bash
+# 터미널 1: 터널 열기
+ssh -i <key> -N -L 5900:127.0.0.1:5900 ubuntu@<EC2_IP>
+
+# 터미널 2: VNC 뷰어 접속
+remmina -c vnc://127.0.0.1:5900
+```
+
+### 5. 붉은별 설치 진행
+
+VNC로 접속하면 붉은별 부트로더가 뜬다. "붉은별 3.0 서버 설치"를 선택하고 진행한다.
+
+설치 도중 **"두번째 설치원반을 넣어주십시오"** 라는 다이얼로그가 뜨면,
+별도 터미널에서 ISO를 교체한 뒤 VNC 화면의 [확인]을 누른다.
+
+```bash
+./scripts/switch-to-install-iso.sh
+```
+
+### 6. 설치 완료 후 정리
+
+설치가 끝나면 재부팅 전에 가상 CD-ROM에서 ISO를 빼야 한다.
+안 빼면 매번 CD로 부팅을 시도한다.
+
+```bash
+./scripts/eject-redstar-iso.sh
+```
+
+VNC 화면에서 [재시동]을 누르면 qcow2 디스크에서 붉은별이 부팅된다.
 
 ## 파일 구조
 
@@ -58,8 +112,3 @@ AWS EC2에서 KVM nested virtualization으로 붉은별 3.0 서버(Red Star OS 3
     ├── redstar_install_guide.md    설치 단계별 가이드
     └── troubleshooting.md          문제 해결
 ```
-
-## 참고
-
-- ISO, qcow2 디스크, SSH 키(pem), Terraform state는 `.gitignore`로 git에서 제외됨.
-- VM은 libvirt NAT 네트워크(`192.168.122.0/24`)에서 격리 구동됨.
