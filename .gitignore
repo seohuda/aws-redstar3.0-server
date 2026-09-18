@@ -37,3 +37,11 @@ Thumbs.db
 *~
 .vscode/
 .idea/
+
+# Private Local Documentation (Never commit to GitHub)
+PRIVATE_GUIDE.md
+LOCAL_README.md
+*.local.md
+*.private.md
+private/
+
