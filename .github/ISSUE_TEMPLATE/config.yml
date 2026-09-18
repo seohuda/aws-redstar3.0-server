@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security policy
+    url: https://github.com/seohuda/aws-redstar3.0-server/security/policy
+    about: Please read the security policy before reporting a vulnerability.
